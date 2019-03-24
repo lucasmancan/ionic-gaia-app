@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registrar Produto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="register()">
+      <ion-item>
+          <ion-input placeholder= "Código" type="text" [(ngModel)]="product.code" name="code"></ion-input>
+        </ion-item>
+    <ion-item>
+      <ion-input placeholder= "Nome" type="text" [(ngModel)]="product.name" name="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder= "Categoria" type="text" [(ngModel)]="product.category" name="category"></ion-input>
+    </ion-item>    
+    <ion-item>
+      <ion-textarea placeholder= "Descricao Curta" type="text" [(ngModel)]="product.shortDescription" name="shortDescription"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-textarea  placeholder= "Descrição Longa" type="text" [(ngModel)]="product.longDescription" name="longDescription"></ion-textarea >
+    </ion-item>
+    <ion-item>
+      <ion-textarea placeholder= "Composição" type="text" [(ngModel)]="product.composition" name="composition"></ion-textarea >
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder= "Preço" [(ngModel)]="product.price" name="price"></ion-input>
+    </ion-item>
+    <ion-button type="submit"  expand="block">Salvar</ion-button>
+    <ion-button routerLink="/home"  expand="block">Voltar</ion-button>
+  </form>
+</ion-content>
