@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 import { AppService } from '../services/app.service';
@@ -8,7 +8,7 @@ import { AppService } from '../services/app.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit{
   public showToolbar: boolean = false;
   public products: any[] = [];
   constructor(private qrScanner: QRScanner, private appService: AppService) { }

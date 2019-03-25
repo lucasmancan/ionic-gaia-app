@@ -6,35 +6,39 @@
   </ion-toolbar>
 </ion-header> -->
 
-<ion-toolbar class="hydrated" *ngIf="showToolbar" >
-        <ion-title *ngIf="showToolbar">Produtos</ion-title>
+<ion-toolbar class="hydrated" *ngIf="showToolbar">
+  <ion-title *ngIf="showToolbar">Produtos</ion-title>
 </ion-toolbar>
 
 <ion-content>
-    <ion-searchbar (input) ="search($event)" autocomplete="on" animated="true" placeholder="Buscar produtos, composições, tratamentos..."></ion-searchbar>
+  <ion-searchbar (input)="search($event)" autocomplete="on" animated="true" placeholder="Buscar produtos, composições, tratamentos..."></ion-searchbar>
+  <ion-list>
+    <ion-item-sliding *ngFor="let product of products">
+      <ion-item>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>{{product.name}}</ion-card-subtitle>
+            <ion-card-title>{{product.shortDescription}}</ion-card-title>
+          </ion-card-header>
+      
+          <ion-card-content>
+            {{product.longDescription}}
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
 
-    <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-      <ion-card-title>Card Title</ion-card-title>
-    </ion-card-header>
-  
-    <ion-card-content>
-      Keep close to Nature's heart... and break clear away, once in awhile,
-      and climb a mountain or spend a week in the woods. Wash your spirit clean.
-    </ion-card-content>
-  </ion-card>
-  
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="!showToolbar"  (click)="runScanner()">
-      <ion-fab-button class="ion-color ion-color-danger ion-activatable ion-focusable hydrated"> 
-          <ion-icon name="qr-scanner"></ion-icon>      
-        </ion-fab-button>
-    </ion-fab>
-    <ion-fab vertical="bottom" horizontal="start" slot="fixed" >
-      <ion-fab-button routerLink="/register" class="ion-activatable ion-focusable hydrated"> 
-          <ion-icon name="add"></ion-icon>      
-        </ion-fab-button>
-    </ion-fab>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="!showToolbar" (click)="runScanner()">
+    <ion-fab-button class="ion-color ion-color-danger ion-activatable ion-focusable hydrated">
+      <ion-icon name="qr-scanner"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button routerLink="/register" class="ion-activatable ion-focusable hydrated">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   <!-- <ion-fab vertical="bottom" horizontal="center" slot="fixed" *ngIf="!showToolbar" (click)="manageToolbar()">
     <ion-fab-button>
       <ion-icon name="search"></ion-icon>

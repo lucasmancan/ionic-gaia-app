@@ -17,6 +17,7 @@ export class RegisterPage implements OnInit {
 
   register(){
     console.log(this.product);
+    this.appService.add(this.product);
   }
 
  
